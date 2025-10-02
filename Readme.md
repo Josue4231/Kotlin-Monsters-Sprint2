@@ -34,7 +34,7 @@ Ce `README` présente les différentes fonctionnalités implémentées lors du *
 - B) [Méthode `avoirPerdu()`](#b-méthode-avoirperdu)
 - C) [Méthode `lancerCombat()`](#c-méthode-lancercombat)
 
-
+### 2) 🌱 Évolution
 
 ### A) La classe `PalierEvolution`
 
@@ -76,7 +76,7 @@ Cette classe permet ainsi d’intégrer facilement la logique d’évolution dan
 
 #### Diagramme d’activité
 
-![Diagramme d'activité : Vérification d'évolution dans levelUp()](./images/diagramme_evolution.png)
+![Diagramme d'activité : Vérification d'évolution dans levelUp()](/imgs%20sprint2/diagramme_levelup.png)
 
 Ce diagramme illustre le processus de vérification d’évolution lors du passage au niveau supérieur (`levelUp()`).
 
@@ -131,6 +131,8 @@ Ensemble, ces deux méthodes garantissent une évolution cohérente et automatiq
 
 ### C) Création d’une nouvelle espèce : Pyrokip
 
+
+
 <!-- Présentation générale -->
 Cette section présente la création d'une nouvelle espèce de monstre nommée **Pyrokip**, évolution de **Flamkip**.  
 Cette espèce possède des caractéristiques améliorées et un lore enrichi, ce qui renforce l’immersion et la dynamique du jeu.
@@ -169,6 +171,11 @@ Cette nouvelle espèce permet de montrer concrètement comment une évolution pe
 Elle offre au joueur un objectif motivant : faire évoluer ses monstres pour découvrir des formes plus puissantes et uniques.
 
 ### C) Création d’une nouvelle espèce : Pyrokip (suite)
+![Diagramme d'activité :Front.txt](/imgs%20sprint2/front.txt.png)
+
+
+
+![Diagramme d'activité : Back.txt](/imgs%20sprint2/back.txt.png)
 
 <!-- Présentation générale -->
 Dans cette partie, nous ajoutons l’ASCII art représentant Pyrokip dans le dossier de ressources,  
@@ -399,6 +406,15 @@ La classe Ville étend la classe Zone pour représenter des zones spéciales où
 
 
 ### B) Ajout des méthodes `soignerEquipe()` et `choisirMonstre()` dans la classe `Entraîneur`
+![Diagramme d'activité soignerEquipe : ](/imgs%20sprint2/soigner%20equipe.png)
+
+
+
+![Diagramme d'activité choisirMonstre: ](/imgs%20sprint2/choisirmontres.png)
+
+
+
+
 <!-- Présentation générale -->
 Ces deux méthodes permettent de gérer l’équipe du dresseur en combat ou hors combat :
 soigneEquipe() restaure la santé de tous les monstres en assignant leurs points de vie (PV) au maximum.
@@ -469,6 +485,8 @@ Ces méthodes améliorent l’expérience de jeu en automatisant la gestion des 
 
 
 ### C) Modification de la méthode `jouer()` de la classe `Partie`
+![Diagramme d'activité jouer() : ](/imgs%20sprint2/joeur.png)
+
 <!-- Présentation générale -->
 
 Cette méthode jouer() gère le déroulement d’une action dans une partie. Elle affiche la zone actuelle où se trouve le joueur, propose un menu d’actions et exécute l’action choisie par le joueur en fonction de sa saisie.
