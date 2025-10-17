@@ -50,6 +50,7 @@ Elle définit les conditions nécessaires à l’évolution d’un individu en s
 La méthode `peutEvoluer()` prend en paramètre un objet de type `IndividuMonstre` et retourne un booléen indiquant si l’individu a atteint ou dépassé le niveau requis pour évoluer.  
 Si la condition est remplie, la méthode retourne `true`, sinon `false`.
 <!-- Le code -->
+```kotlin
 package org.example.monstre
 
 class PalierEvolution (
@@ -68,6 +69,7 @@ class PalierEvolution (
         }
     }
 }
+```
 <!-- Résumé de l’utilité -->
 Cette classe permet ainsi d’intégrer facilement la logique d’évolution dans le système des monstres, en vérifiant les conditions d’évolution avant d’effectuer une transformation vers une nouvelle espèce.
 
@@ -88,10 +90,12 @@ La méthode `evoluer()` ne prend pas de paramètre et ne retourne rien.
 Son rôle est de remplacer l’espèce actuelle du monstre par son évolution définie dans le palier d’évolution, puis d’afficher un message pour informer que le monstre évolue.
 
 <!--Le code-->
+```kotlin
 fun evoluer() {
     especeMonstre = palierEvolution?.evolution ?: especeMonstre
     println("Le monstre évolue en ${especeMonstre.nom} !")
 }
+```
 
 ### Méthode `levelup()`
 <!-- Explication de la méthode -->
@@ -100,6 +104,7 @@ Elle incrémente le niveau, puis vérifie si un palier d’évolution est défin
 Si c’est le cas, elle appelle evoluer() pour transformer le monstre.
 
 <!--Le code-->
+```kotlin
 fun levelUp() {
     niveau++ // Incrémente le niveau du monstre de 1
 
@@ -116,6 +121,7 @@ fun levelUp() {
         println("Pas de palier d'évolution défini")
     }
 }
+```
 
 
 <!-- Résumé de l’utilité -->
@@ -141,6 +147,7 @@ Cette espèce possède des caractéristiques améliorées et un lore enrichi, ce
 La création se fait via une instance de la classe `EspeceMonstre`, en précisant ses statistiques de base, modificateurs, description, particularités, caractères et éléments associés.  
 L’exemple de code ci-dessous illustre cette création :
 <!--Le code -->
+```kotlin
 val especePyrokip = EspeceMonstre(
     id = 5,                            // Identifiant unique de l'espèce
     nom = "pyrokip",                  // Nom de l'espèce
@@ -165,6 +172,7 @@ val especePyrokip = EspeceMonstre(
     caracteres = "Fier, protecteur, explosif.",
     elements = mutableListOf(feu)
 )
+```
 <!-- Résumé de l’utilité -->
 
 Cette nouvelle espèce permet de montrer concrètement comment une évolution peut se traduire par une amélioration des statistiques et une personnalisation narrative.
@@ -231,18 +239,22 @@ Palier d’évolution
 Palier d’évolution
 Avant la fonction main(), on crée le palier d’évolution :
 <!--Le code dans main.kt-->
+```kotlin
 val palierPyrokip = PalierEvolution(
     id = 1,
     niveauRequis = 7,
     evolution = especePyrokip
 )
+```
 Puis dans la fonction main(), on associe ce palier à l’espèce Flamkip :
 <!--le code-->
+```kotlin
 fun main() {
     especeFlamkip.palierEvolution = palierPyrokip
 
     // Reste du code principal ...
 }
+```
 <!-- Résumé de l’utilité -->
 
 L’ASCII art permet de donner une identité visuelle forte à Pyrokip, enrichissant l’expérience utilisateur.
@@ -272,6 +284,7 @@ Ce test simule la montée de niveau d’un monstre et vérifie son changement d�
 <!-- Explication de la méthode -->
 
 Voici le code du test :
+```kotlin
 
 class IndividuMonstreTest {
 
@@ -308,6 +321,7 @@ class IndividuMonstreTest {
         assertEquals(especePyrokip, monstre1.especeMonstre)
     }
 }
+```
 
 <!-- Résumé de l’utilité -->
 
@@ -330,6 +344,7 @@ Valider automatiquement le comportement de la méthode levelUp() et de l’attri
  Pour cela, on ajoute le mot-clé `open` devant la déclaration de la classe Zone,
  ce qui permet à Ville d’en hériter.
 <!--Le code -->
+```kotlin
 open class Zone(
     val id: Int,
     val nom: String,
@@ -339,6 +354,7 @@ open class Zone(
     var zoneSuivante: Zone? = null
     var zonePrecedente: Zone? = null
 }
+```
 
 <!-- Présentation générale -->
  La classe Ville hérite de Zone et ajoute des propriétés spécifiques,
@@ -349,6 +365,7 @@ open class Zone(
  - arene : une instance d’Arene (à définir plus tard)
  - lignesMagasin : une liste d'articles vendus dans la ville (à définir plus tard)
 <!--Le code-->
+```kotlin
 class Arene {
 
 }
@@ -368,6 +385,7 @@ class Ville(
     lateinit var arene: Arene  // Une ville peut contenir une arène (à définir plus tard)
     var lignesMagasin: MutableList<LigneMagasin> = mutableListOf()     // Une ville peut avoir un magasin avec plusieurs articles à vendre
 }
+```
 ### Création de la ville RacailleCity et modification des connexions des zones (suite de A )
  <!-- Présentation générale -->
  Dans main.kt, on crée une instance de Ville appelée RacailleCity, où le joueur peut rencontrer des monstres de l’espèce Galum.
@@ -377,12 +395,14 @@ class Ville(
  - route2.zoneSuivante = racailleCity
  - racailleCity.zonePrecedente = route2
 <!--Le code-->
+```kotlin
 val racailleCity = Ville(
     id = 3,
     nom = "RacailleCity",
     expZone = 300,
     especesMonstres = mutableListOf(galum)
 )
+
 
  Connexion de route2 à RacailleCity (aller)
 route2.zoneSuivante = racailleCity
@@ -398,6 +418,7 @@ assert(route2.zoneSuivante?.nom == "RacailleCity")
 assert(racailleCity.zonePrecedente?.nom == "Route 2")
 
 println("Tests OK")
+```
 
 <!-- Résumé de l’utilité -->
 
@@ -425,6 +446,7 @@ soigneEquipe() parcourt simplement la liste equipeMonstre et remet les PV au max
 choisirMonstre() filtre les monstres vivants (PV > 0), affiche la liste avec leurs indices, et demande à l’utilisateur de saisir un choix valide en boucle.
 
 <!--Le code -->
+```kotlin
 /**
  * Permet de soigner tous les monstres de l'équipe en restaurant leurs PV au maximum.
  * Parcourt chaque monstre et assigne sa valeur de PV maximale à ses PV actuels.
@@ -478,6 +500,7 @@ fun choisirMonstre(): IndividuMonstre {
         println("Choix invalide, réessayez.")
     }
 }
+```
 <!-- Résumé de l’utilité -->
 
 Ces méthodes améliorent l’expérience de jeu en automatisant la gestion des monstres soignés et en rendant intuitive la sélection d’un monstre disponible en combat.
@@ -499,6 +522,7 @@ Aller vers la zone suivante si elle existe (sinon message d’erreur).
 Revenir à la zone précédente si elle existe (sinon message d’erreur).
 La saisie est lue via readLine(), et un when permet de gérer chaque choix. En cas de saisie invalide, un message d’erreur est affiché.
 <!--Le code -->
+```kotlin
 fun jouer() {
     // Afficher la zone actuelle
     println("Vous êtes dans la zone : ${zone.nom}")
@@ -552,5 +576,6 @@ fun jouer() {
         }
     }
 }
+```
 <!-- Résumé de l’utilité -->
 La méthode jouer() structure l’interaction utilisateur à chaque tour, permettant de naviguer entre les zones, d’affronter des monstres ou de gérer son équipe. Elle est essentielle pour la boucle principale de la partie.
