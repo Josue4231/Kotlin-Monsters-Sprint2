@@ -114,16 +114,48 @@ fun levelUp() {
 ---
 
 ## 📁 Structure du projet
-/src
-  /org/example/monstre
-    PalierEvolution.kt
-    IndividuMonstre.kt
-    EspeceMonstre.kt
-  /ressources
-    /art/pyrokip/front.txt
-    /art/pyrokip/back.txt
-/test
-  IndividuMonstreTest.kt
+
+
+- `/src/org/example/monstre` : contient les classes principales du jeu et la logique d’évolution.  
+- `/ressources/art/pyrokip` : fichiers ASCII art pour représenter les monstres.  
+- `/test` : tests unitaires pour valider l’évolution des monstres et le comportement du jeu.
+
+---
+
+## 🏗️ Sprint 2 – Évolution & Villes
+
+### 🌱 Évolution des monstres
+- Classe `PalierEvolution` pour gérer les conditions d’évolution.
+- Méthodes `levelUp()` et `evoluer()` dans `IndividuMonstre` pour la progression automatique.
+- Création d’une nouvelle espèce : **Pyrokip**, évolution de Flamkip.
+
+### 🏙️ Villes et exploration
+- Création de la classe `Ville` héritant de `Zone`.
+- Gestion des déplacements entre zones.
+- Ajout de méthodes dans `Entraîneur` : `soignerEquipe()` et `choisirMonstre()`.
+
+### ⚔️ Combats
+- Introduction des **arènes**.
+- Méthodes `avoirGagne()`, `avoirPerdu()` et `lancerCombat()` pour gérer les combats contre les dresseurs.
+
+---
+
+## 🧩 Compétences mises en œuvre
+- Programmation orientée objet en **Kotlin**.
+- Gestion de la progression et évolution des entités.
+- Conception de classes modulaires et héritage.
+- Tests unitaires pour vérifier le comportement du jeu.
+- Manipulation de fichiers ASCII pour représenter les monstres.
+- Gestion de l’interaction utilisateur avec menus et saisies console.
+
+---
+
+## 📌 Objectif
+Créer un **jeu textuel évolutif**, illustrant des concepts OOP et une progression logique, tout en offrant une expérience ludique et immersive pour l’utilisateur.
+
+---
+
+
   ---
 
 ## 🧩 Compétences mises en œuvre
